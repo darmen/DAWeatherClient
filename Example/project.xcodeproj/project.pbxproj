@@ -17,6 +17,7 @@
 		1BFC9692190A7638002DA5F2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC9691190A7638002DA5F2 /* ViewController.m */; };
 		1BFC9694190A7638002DA5F2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1BFC9693190A7638002DA5F2 /* Images.xcassets */; };
 		1BFC96BB190A7EB7002DA5F2 /* DAWeatherClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BFC96BA190A7EB7002DA5F2 /* DAWeatherClient.m */; };
+		1BFC96BD190A8400002DA5F2 /* key.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1BFC96BC190A8400002DA5F2 /* key.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		1BFC969A190A7638002DA5F2 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1BFC96B9190A7EB7002DA5F2 /* DAWeatherClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAWeatherClient.h; sourceTree = "<group>"; };
 		1BFC96BA190A7EB7002DA5F2 /* DAWeatherClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAWeatherClient.m; sourceTree = "<group>"; };
+		1BFC96BC190A8400002DA5F2 /* key.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = key.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				1BFC9684190A7637002DA5F2 /* InfoPlist.strings */,
 				1BFC9687190A7637002DA5F2 /* main.m */,
 				1BFC9689190A7637002DA5F2 /* project-Prefix.pch */,
+				1BFC96BC190A8400002DA5F2 /* key.plist */,
 			);
 			name = "Supporting Files";
 			path = project;
@@ -170,6 +173,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BFC96BD190A8400002DA5F2 /* key.plist in Resources */,
 				1BFC9694190A7638002DA5F2 /* Images.xcassets in Resources */,
 				1BFC9686190A7637002DA5F2 /* InfoPlist.strings in Resources */,
 				1BFC968F190A7638002DA5F2 /* Main.storyboard in Resources */,

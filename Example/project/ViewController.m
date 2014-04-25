@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "DAWeatherClient.h"
 
 @interface ViewController ()
 
@@ -17,7 +18,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    NSString *pathToPlist = [NSString stringWithFormat:@"%@/key.plist",[[NSBundle mainBundle]resourcePath]];
+    NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:pathToPlist];
+    
+    DAWeatherClient *client = [[DAWeatherClient alloc] initWithApiKey:[plistDictionary objectForKey:@"key"]];
+    [client requestWeather];
 }
 
 - (void)didReceiveMemoryWarning
