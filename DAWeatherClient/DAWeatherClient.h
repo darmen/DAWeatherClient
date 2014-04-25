@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DAWeatherClient : NSObject
+@interface DAWeatherClient : NSObject {
+    NSString *apiKey;
+}
+
+@property (nonatomic, retain) NSString *apiKey;
+
+- (id)initWithApiKey:(NSString *)key;
 
 @end
