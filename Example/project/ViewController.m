@@ -23,8 +23,8 @@
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:pathToPlist];
     
     DAWeatherClient *client = [[DAWeatherClient alloc] initWithApiKey:[plistDictionary objectForKey:@"key"]];
-    [client weatherForTodayAtLocation:@"Astana" forDays:1 withBlock:^(NSDictionary *info){
-        NSLog(@"weather info: %@", info);
+    [client weatherForTodayAtLocation:@"Astana" forDays:1 withBlock:^(DAWeatherInfo *info){
+        // info contains current weather conditions information
     }];
 }
 
