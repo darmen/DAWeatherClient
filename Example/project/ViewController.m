@@ -23,7 +23,9 @@
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:pathToPlist];
     
     DAWeatherClient *client = [[DAWeatherClient alloc] initWithApiKey:[plistDictionary objectForKey:@"key"]];
-    [client requestWeather];
+    [client weatherForLocation:@"Astana" withBlock:^(NSDictionary *info){
+        NSLog(@"weather info: %@", info);
+    }];
 }
 
 - (void)didReceiveMemoryWarning

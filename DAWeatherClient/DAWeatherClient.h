@@ -18,5 +18,5 @@
 
 - (id)initWithApiKey:(NSString *)key;
 
-- (void)requestWeather;
+- (void)weatherForLocation:(NSString*)location withBlock:(void (^)(NSDictionary *info))block;
 @end

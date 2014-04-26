@@ -32,14 +32,14 @@
     return self;
 }
 
-- (void)requestWeather {
-    NSString *urlString = [NSString stringWithFormat:@"http://api.worldweatheronline.com/free/v1/weather.ashx?q=Astana&format=json&key=%@", apiKey];
+- (void)weatherForLocation:(NSString*)location withBlock:(void (^)(NSDictionary *info))block {
+    NSString *urlString = [NSString stringWithFormat:@"http://api.worldweatheronline.com/free/v1/weather.ashx?q=%@&format=json&key=%@", location, apiKey];
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSURLSessionDataTask *task = [session dataTaskWithURL:url
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                            NSLog(@"%@", json);
+                                            block(json);
                                         }
                                   ];
     [task resume];

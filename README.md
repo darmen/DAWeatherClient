@@ -1,4 +1,4 @@
 DAWeatherClient
 ===============
 
-iOS client library WorldWeatherOnline.com
+iOS client library for  WorldWeatherOnline.com
