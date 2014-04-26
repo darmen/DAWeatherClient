@@ -32,9 +32,27 @@
     return self;
 }
 
-- (void)weatherForLocation:(NSString*)location withBlock:(void (^)(NSDictionary *info))block {
-    NSString *urlString = [NSString stringWithFormat:@"http://api.worldweatheronline.com/free/v1/weather.ashx?q=%@&format=json&key=%@", location, apiKey];
-    NSURL *url = [NSURL URLWithString:urlString];
+- (void)weatherForTodayAtLocation:(NSString *)location forDays:(int)days withBlock:(void (^)(NSDictionary *))block
+{
+    [self weatherForLocation:location forDays:1 forDate:[NSDate date] withBlock:block];
+}
+
+- (void)weatherForLocation:(NSString*)location forDays:(int)days forDate:(NSDate *)date withBlock:(void (^)(NSDictionary *info))block {
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"yyyy-mm-dd"];
+    NSString *stringFromDate = [formatter stringFromDate:date];
+    
+    
+    NSURL *url = [self constructURLWithBase:@"api.worldweatheronline.com/free/v1/weather.ashx"
+                              andParameters:@{
+                                              @"key": apiKey,
+                                              @"q": location,
+                                              @"num_of_days": @(days),
+                                              @"date": stringFromDate,
+                                              @"show_comments": @"no",
+                                              @"format": @"json"
+                                              }];
     
     NSURLSessionDataTask *task = [session dataTaskWithURL:url
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -43,6 +61,23 @@
                                         }
                                   ];
     [task resume];
+}
+
+- (NSURL*)constructURLWithBase:(NSString *)baseURLString andParameters:(NSDictionary *)parameters
+{
+    NSString *urlString = [NSString stringWithFormat:@"http://%@?", baseURLString];
+
+    NSEnumerator *enumerator = [parameters keyEnumerator];
+    NSString *key;
+    
+    while ((key = [enumerator nextObject])) {
+        NSString *value = [parameters objectForKey:key];
+        urlString = [urlString stringByAppendingFormat:@"%@=%@&", key, value];
+    }
+    
+    urlString = [urlString substringToIndex:[urlString length] - 1];
+    
+    return [NSURL URLWithString:urlString];
 }
 
 
