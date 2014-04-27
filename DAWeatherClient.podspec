@@ -6,7 +6,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = "DAWeatherClient"
-  s.version          = "0.0.1"
+  s.version          = "0.0.2"
   s.summary          = "iOS client library for WorldWeatherOnline.com"
   s.homepage         = "https://github.com/darmen/DAWeatherClient"
   s.license          = 'MIT'
