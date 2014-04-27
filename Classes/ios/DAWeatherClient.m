@@ -59,7 +59,9 @@
                                         completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                             DAWeatherInfo *info = [[DAWeatherInfo alloc] initWithDictionary:json];
-                                            block(info);
+                                            dispatch_sync(dispatch_get_main_queue(), ^{
+                                                block(info);
+                                            });
                                         }
                                   ];
     [task resume];
