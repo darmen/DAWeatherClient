@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DAWeatherClient.h"
 
 @interface ViewController : UIViewController
+@property (nonatomic, retain) DAWeatherClient *client;
+@property (nonatomic, retain) IBOutlet UITextField *locationTextfield;
+@property (nonatomic, retain) IBOutlet UITextView *weatherInfoTextview;
 
+- (IBAction)getWeather:(id)sender;
 @end

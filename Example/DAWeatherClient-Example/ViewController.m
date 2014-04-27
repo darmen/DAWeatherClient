@@ -15,6 +15,10 @@
 
 @implementation ViewController
 
+@synthesize client = _client;
+@synthesize locationTextfield = _locationTextfield;
+@synthesize weatherInfoTextview = _weatherInfoTextview;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -23,11 +27,15 @@
     NSDictionary *plistDictionary = [NSDictionary dictionaryWithContentsOfFile:pathToPlist];
     NSString *key = [plistDictionary objectForKey:@"key"];
     
-    DAWeatherClient *client = [[DAWeatherClient alloc] initWithApiKey:key];
-    [client weatherForTodayAtLocation:@"Astana" forDays:1 withBlock:^(DAWeatherInfo *info) {
-        // info contains weather information
+    _client = [[DAWeatherClient alloc] initWithApiKey:key];
+}
+
+- (IBAction)getWeather:(id)sender {
+    [_client weatherForTodayAtLocation: _locationTextfield.text forDays:1 withBlock:^(DAWeatherInfo *info) {
+        NSString *weatherInfo = [NSString stringWithFormat:@"Temperature: %d Celsius.\nCloud cover: %d%%\nWind speed and direction: %d km/h, %@", info.temperatureCelsius, info.cloudCover, info.windSpeedKilometersPerHour, info.windDirection16Point];
+        _weatherInfoTextview.text = weatherInfo;
+        [_locationTextfield resignFirstResponder];
     }];
-    
 }
 
 - (void)didReceiveMemoryWarning
