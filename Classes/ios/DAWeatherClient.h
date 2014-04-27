@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "DAWeatherInfo.h"
+#import "DATimeZoneInfo.h"
 
 @interface DAWeatherClient : NSObject {
     NSString *apiKey;
@@ -23,4 +24,5 @@
 - (void)weatherForLocation:(NSString*)location forDays:(int)days forDate:(NSDate *)date withBlock:(void (^)(DAWeatherInfo *info))block;
 - (void)weatherForTodayAtLocation:(NSString*)location forDays:(int)days withBlock:(void (^)(DAWeatherInfo *info))block;
 
+- (void)timeZoneForLocation:(NSString*)location withBlock:(void (^)(DATimeZoneInfo *info))block;
 @end

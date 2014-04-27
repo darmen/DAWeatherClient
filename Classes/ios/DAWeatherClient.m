@@ -67,6 +67,28 @@
     [task resume];
 }
 
+- (void)timeZoneForLocation:(NSString*)location withBlock:(void (^)(DATimeZoneInfo *info))block
+{
+    NSURL *url = [self constructURLWithBase:@"api.worldweatheronline.com/free/v1/tz.ashx"
+                              andParameters:@{
+                                              @"key": apiKey,
+                                              @"q": location,
+                                              @"format": @"json",
+                                              }];
+    
+    NSURLSessionDataTask *task = [session dataTaskWithURL:url
+                                        completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                            DATimeZoneInfo *info = [[DATimeZoneInfo alloc] initWithDictionary:json];
+                                            dispatch_sync(dispatch_get_main_queue(), ^{
+                                                block(info);
+                                            });
+                                        }
+                                  ];
+    [task resume];
+  
+}
+
 - (NSURL*)constructURLWithBase:(NSString *)baseURLString andParameters:(NSDictionary *)parameters
 {
     NSString *urlString = [NSString stringWithFormat:@"http://%@?", baseURLString];
