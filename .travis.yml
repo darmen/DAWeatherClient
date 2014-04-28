@@ -1,2 +1,2 @@
 language: objective-c
-script: xcodebuild -workspace Example/DAWeatherClient-Example.xcworkspace -scheme DAWeatherClient-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+script: xctool -workspace Example/DAWeatherClient-Example.xcworkspace -scheme DAWeatherClient-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
