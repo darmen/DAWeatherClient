@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: Example/DAWeatherClient-Example.xcodeproj
 xcode_scheme: DAWeatherClient-Example
+before_install: pod install
