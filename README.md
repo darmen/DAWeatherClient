@@ -1,5 +1,8 @@
 # DAWeatherClient
 
+[![Build Status](https://travis-ci.org/darmen/DAWeatherClient.svg?branch=master)](https://travis-ci.org/darmen/DAWeatherClient)
+[![alt text](https://cocoapod-badges.herokuapp.com/v/DAWeatherClient/badge.png "")]()
+[![alt text](https://cocoapod-badges.herokuapp.com/p/DAWeatherClient/badge.png "")]()
 
 ## Usage
 
