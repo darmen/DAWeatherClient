@@ -1,4 +1,2 @@
 language: objective-c
-xcode_project: Example/DAWeatherClient-Example.xcodeproj
-xcode_scheme: DAWeatherClient-Example
-before_install: pod install
+script: xcodebuild -workspace Example/DAWeatherClient-Example.xcworkspace -scheme DAWeatherClient-Example -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
