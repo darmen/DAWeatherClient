@@ -1,7 +1,5 @@
 # DAWeatherClient
 
-[![Version](http://cocoapod-badges.herokuapp.com/v/DAWeatherClient/badge.png)](http://cocoadocs.org/docsets/DAWeatherClient)
-[![Platform](http://cocoapod-badges.herokuapp.com/p/DAWeatherClient/badge.png)](http://cocoadocs.org/docsets/DAWeatherClient)
 
 ## Usage
 
